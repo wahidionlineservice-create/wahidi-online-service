@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wahidi Online Service and Printers</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&family=Noto+Nastaliq+Urdu:wght@600&family=Noto+Sans+Gurmukhi:wght@600&family=Noto+Sans+Devanagari:wght@700&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+  min-height:100vh;
+  display:flex; justify-content:center; align-items:flex-start;
+  padding:20px 12px;
+  color:#fff;
+}
+.container {
+  background:#ffffff;
+  border-radius:16px;
+  padding:35px 25px;
+  max-width:600px;
+  width:100%;
+  text-align:center;
+  box-shadow:0 20px 50px rgba(0,0,0,0.35);
+  border-top:5px solid #c9a227;
+  position:relative;
+}
+
+/* ===== शॉप नाम ===== */
+.shop-name-anim {
+  position:relative;
+  height:120px;
+  margin-bottom:10px;
+}
+.shop-name-anim .name {
+  position:absolute;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:'Noto Sans Devanagari',serif;
+  font-size:26px;
+  color:#1a2a3a;
+  font-weight:700;
+  line-height:1.4;
+  padding:0 5px;
+  opacity:0;
+  word-wrap:break-word;
+  overflow-wrap:break-word;
+}
+
+.shop-name-anim .name:nth-child(1) { animation:dropIn 20s infinite; animation-delay:0s; }
+.shop-name-anim .name:nth-child(2) { animation:dropIn 20s infinite; animation-delay:5s; }
+.shop-name-anim .name:nth-child(3) { animation:dropIn 20s infinite; animation-delay:10s; }
+.shop-name-anim .name:nth-child(4) { animation:dropIn 20s infinite; animation-delay:15s; }
+
+@keyframes dropIn {
+  0%   { opacity:0; transform:translateY(-40px) scale(0.85); }
+  5%   { opacity:1; transform:translateY(0) scale(1.05); }
+  8%   { opacity:1; transform:translateY(0) scale(1); }
+  23%  { opacity:1; transform:translateY(0) scale(1); }
+  25%  { opacity:0; transform:translateY(40px) scale(0.85); }
+  100% { opacity:0; transform:translateY(40px) scale(0.85); }
+}
+
+.english-name { font-family:'Playfair Display',serif !important; }
+.urdu-name {
+  font-family:'Noto Nastaliq Urdu',serif !important;
+  direction:rtl;
+  font-size:24px !important;
+  line-height:2 !important;
+}
+.punjabi-name {
+  font-family:'Noto Sans Gurmukhi',sans-serif !important;
+  font-size:24px !important;
+}
+
+/* ===== टैगलाइन ===== */
+.tagline-anim {
+  position:relative;
+  height:45px;
+  margin-bottom:20px;
+}
+.tagline-anim .tag {
+  position:absolute;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:13px;
+  letter-spacing:1px;
+  color:#c9a227;
+  font-weight:600;
+  opacity:0;
+  padding:0 5px;
+  word-wrap:break-word;
+}
+
+.tagline-anim .tag:nth-child(1) { animation:slideLeft 20s infinite; animation-delay:0s; }
+.tagline-anim .tag:nth-child(2) { animation:slideLeft 20s infinite; animation-delay:5s; }
+.tagline-anim .tag:nth-child(3) { animation:slideLeft 20s infinite; animation-delay:10s; }
+.tagline-anim .tag:nth-child(4) { animation:slideLeft 20s infinite; animation-delay:15s; }
+
+@keyframes slideLeft {
+  0%   { opacity:0; transform:translateX(60px); }
+  5%   { opacity:1; transform:translateX(0); }
+  23%  { opacity:1; transform:translateX(0); }
+  25%  { opacity:0; transform:translateX(-60px); }
+  100% { opacity:0; transform:translateX(-60px); }
+}
+
+.urdu-tag { font-family:'Noto Nastaliq Urdu',serif; direction:rtl; font-size:15px; }
+.punjabi-tag { font-family:'Noto Sans Gurmukhi',sans-serif; font-size:14px; }
+
+.divider {
+  width:80px; height:2px;
+  background:linear-gradient(to right, transparent, #c9a227, transparent);
+  margin:0 auto 20px;
+  border-radius:2px;
+}
+
+/* ===== वेलकम ===== */
+.welcome-anim {
+  position:relative;
+  height:55px;
+  margin-bottom:20px;
+}
+.welcome-anim span {
+  position:absolute;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+  font-weight:600;
+  color:#1a2a3a;
+  opacity:0;
+}
+
+.welcome-anim span:nth-child(1) { animation:zoomIn 20s infinite; animation-delay:0s; }
+.welcome-anim span:nth-child(2) { animation:zoomIn 20s infinite; animation-delay:5s; }
+.welcome-anim span:nth-child(3) { animation:zoomIn 20s infinite; animation-delay:10s; }
+.welcome-anim span:nth-child(4) { animation:zoomIn 20s infinite; animation-delay:15s; }
+
+@keyframes zoomIn {
+  0%   { opacity:0; transform:scale(0.4) rotate(-8deg); }
+  5%   { opacity:1; transform:scale(1.1) rotate(2deg); }
+  8%   { opacity:1; transform:scale(1) rotate(0deg); }
+  23%  { opacity:1; transform:scale(1) rotate(0deg); }
+  25%  { opacity:0; transform:scale(1.3) rotate(8deg); }
+  100% { opacity:0; transform:scale(1.3) rotate(8deg); }
+}
+
+.urdu-text { font-family:'Noto Nastaliq Urdu',serif; font-size:22px; direction:rtl; }
+.punjabi-text { font-family:'Noto Sans Gurmukhi',sans-serif; font-size:20px; }
+
+/* ===== नोट ===== */
+.note-container {
+  position:relative;
+  height:190px;
+  margin-bottom:15px;
+}
+.note {
+  background:#f7f9fc;
+  border-radius:12px;
+  padding:18px 20px;
+  border-left:4px solid #1a2a3a;
+  position:absolute;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  opacity:0;
+  display:flex;
+  align-items:center;
+  overflow:auto;
+  box-shadow:inset 0 0 0 1px #e8eef5;
+}
+.note .lang-text {
+  font-size:15px;
+  color:#2c3e50;
+  line-height:1.7;
+  text-align:justify;
+  text-justify:inter-word;
+  width:100%;
+}
+
+.note:nth-child(1) { animation:flipNote 20s infinite; animation-delay:0s; }
+.note:nth-child(2) { animation:flipNote 20s infinite; animation-delay:5s; }
+.note:nth-child(3) { animation:flipNote 20s infinite; animation-delay:10s; }
+.note:nth-child(4) { animation:flipNote 20s infinite; animation-delay:15s; }
+
+@keyframes flipNote {
+  0%   { opacity:0; transform:rotateY(90deg); }
+  5%   { opacity:1; transform:rotateY(0deg); }
+  23%  { opacity:1; transform:rotateY(0deg); }
+  25%  { opacity:0; transform:rotateY(-90deg); }
+  100% { opacity:0; transform:rotateY(-90deg); }
+}
+
+.urdu-note {
+  font-family:'Noto Nastaliq Urdu',serif !important;
+  direction:rtl;
+  text-align:right !important;
+  font-size:18px !important;
+  line-height:2.2 !important;
+}
+.punjabi-note {
+  font-family:'Noto Sans Gurmukhi',sans-serif !important;
+  font-size:16px !important;
+  line-height:1.9 !important;
+}
+
+/* ===== बटन ===== */
+.btn-anim {
+  display:inline-block;
+  margin-top:12px;
+  background:#1a2a3a;
+  color:#c9a227;
+  padding:0;
+  border-radius:30px;
+  text-decoration:none;
+  font-size:15px;
+  font-weight:600;
+  box-shadow:0 8px 20px rgba(26,42,58,0.3);
+  position:relative;
+  height:52px;
+  width:100%;
+  max-width:280px;
+  overflow:hidden;
+  transition:all 0.3s;
+  vertical-align:middle;
+  border:1px solid #c9a227;
+}
+.btn-anim:hover {
+  background:#c9a227;
+  box-shadow:0 10px 25px rgba(201,162,39,0.4);
+}
+.btn-anim:hover span { color:#1a2a3a; }
+
+.btn-anim span {
+  position:absolute;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  opacity:0;
+  padding:0 12px;
+  color:#c9a227;
+  text-align:center;
+  transition:color 0.3s;
+}
+
+.btn-anim span:nth-child(1) { animation:btnFade 20s infinite; animation-delay:0s; }
+.btn-anim span:nth-child(2) { animation:btnFade 20s infinite; animation-delay:5s; }
+.btn-anim span:nth-child(3) { animation:btnFade 20s infinite; animation-delay:10s; }
+.btn-anim span:nth-child(4) { animation:btnFade 20s infinite; animation-delay:15s; }
+
+@keyframes btnFade {
+  0%   { opacity:0; transform:translateY(20px); }
+  5%   { opacity:1; transform:translateY(0); }
+  23%  { opacity:1; transform:translateY(0); }
+  25%  { opacity:0; transform:translateY(-20px); }
+  100% { opacity:0; transform:translateY(-20px); }
+}
+
+/* ऑनलाइन सर्विस बटन - उलटा रंग */
+.btn-services {
+  background:#c9a227;
+  color:#1a2a3a;
+  border:1px solid #1a2a3a;
+}
+.btn-services:hover {
+  background:#1a2a3a;
+  box-shadow:0 10px 25px rgba(26,42,58,0.4);
+}
+.btn-services span { color:#1a2a3a; }
+.btn-services:hover span { color:#c9a227; }
+
+.urdu-btn {
+  font-family:'Noto Nastaliq Urdu',serif !important;
+  direction:rtl;
+  font-size:17px !important;
+  line-height:1.8 !important;
+}
+.punjabi-btn {
+  font-family:'Noto Sans Gurmukhi',sans-serif !important;
+  font-size:15px !important;
+}
+
+footer {
+  margin-top:25px;
+  font-size:12px;
+  color:#8899a6;
+  letter-spacing:0.5px;
+}
+
+/* ===== मोबाइल ===== */
+@media(max-width:480px){
+  .container { padding:25px 15px; }
+  .shop-name-anim { height:110px; }
+  .shop-name-anim .name { font-size:19px; line-height:1.5; }
+  .urdu-name { font-size:20px !important; line-height:2.4 !important; }
+  .punjabi-name { font-size:19px !important; }
+  .tagline-anim { height:50px; }
+  .tagline-anim .tag { font-size:11px; line-height:1.4; }
+  .urdu-tag { font-size:13px; line-height:1.8; }
+  .punjabi-tag { font-size:12px; line-height:1.6; }
+  .welcome-anim { height:55px; }
+  .welcome-anim span { font-size:17px; }
+  .urdu-text { font-size:19px; line-height:1.8; }
+  .punjabi-text { font-size:17px; }
+  .note-container { height:230px; }
+  .note .lang-text { font-size:13px; line-height:1.7; }
+  .urdu-note { font-size:16px !important; line-height:2.4 !important; }
+  .punjabi-note { font-size:14px !important; line-height:2 !important; }
+  .btn-anim { height:50px; font-size:13px; }
+  .urdu-btn { font-size:15px !important; }
+  .punjabi-btn { font-size:13px !important; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- शॉप नाम -->
+  <div class="shop-name-anim">
+    <div class="name">वाहिदी ऑनलाइन सर्विस<br>एंड प्रिंटर्स</div>
+    <div class="name english-name">Wahidi Online Service<br>and Printers</div>
+    <div class="name urdu-name">وحیدی آن لائن سروس<br>اینڈ پرنٹرز</div>
+    <div class="name punjabi-name">ਵਾਹਿਦੀ ਆਨਲਾਈਨ ਸਰਵਿਸ<br>ਐਂਡ ਪ੍ਰਿੰਟਰਜ਼</div>
+  </div>
+
+  <!-- टैगलाइन -->
+  <div class="tagline-anim">
+    <div class="tag">✦ शादी कार्ड • प्रिंटिंग • ऑनलाइन सेवा ✦</div>
+    <div class="tag">✦ Wedding Cards • Printing • Online ✦</div>
+    <div class="tag urdu-tag">✦ شادی کارڈ • پرنٹنگ • آن لائن سروس ✦</div>
+    <div class="tag punjabi-tag">✦ ਵਿਆਹ ਕਾਰਡ • ਪ੍ਰਿੰਟਿੰਗ • ਆਨਲਾਈਨ ✦</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- वेलकम -->
+  <div class="welcome-anim">
+    <span>🙏 स्वागत है</span>
+    <span>🙏 Welcome</span>
+    <span class="urdu-text">🙏 خوش آمدید</span>
+    <span class="punjabi-text">🙏 ਜੀ ਆਇਆਂ ਨੂੰ</span>
+  </div>
+
+  <!-- नोट -->
+  <div class="note-container">
+    <div class="note">
+      <div class="lang-text">आपका हार्दिक स्वागत है वाहिदी ऑनलाइन सर्विस एंड प्रिंटर्स पर। यहाँ हर तरह के शादी कार्ड, प्रिंटिंग और ऑनलाइन सेवाएँ उपलब्ध हैं।</div>
+    </div>
+    <div class="note">
+      <div class="lang-text">A warm welcome to Wahidi Online Service and Printers. Here, all types of wedding cards, printing and online services are available.</div>
+    </div>
+    <div class="note">
+      <div class="lang-text urdu-note">واہدی آن لائن سروس اینڈ پرنٹرز پر آپ کا پرتپاک استقبال ہے۔ یہاں ہر قسم کے شادی کارڈ، پرنٹنگ اور آن لائن خدمات دستیاب ہیں۔</div>
+    </div>
+    <div class="note">
+      <div class="lang-text punjabi-note">ਵਾਹਿਦੀ ਆਨਲਾਈਨ ਸਰਵਿਸ ਐਂਡ ਪ੍ਰਿੰਟਰਜ਼ 'ਤੇ ਤੁਹਾਡਾ ਦਿਲੋਂ ਸਵਾਗਤ ਹੈ। ਇੱਥੇ ਹਰ ਤਰ੍ਹਾਂ ਦੇ ਵਿਆਹ ਦੇ ਕਾਰਡ, ਪ੍ਰਿੰਟਿੰਗ ਅਤੇ ਆਨਲਾਈਨ ਸੇਵਾਵਾਂ ਉਪਲਬਧ ਹਨ।</div>
+    </div>
+  </div>
+
+  <!-- कार्ड बटन -->
+  <a href="#cards" class="btn-anim">
+    <span>📇 हमारे कार्ड देखें</span>
+    <span>📇 View Our Cards</span>
+    <span class="urdu-btn">📇 ہمارے کارڈ دیکھیں</span>
+    <span class="punjabi-btn">📇 ਸਾਡੇ ਕਾਰਡ ਦੇਖੋ</span>
+  </a>
+
+  <!-- ऑनलाइन सर्विस बटन -->
+  <a href="#services" class="btn-anim btn-services">
+    <span>💼 ऑनलाइन सर्विस</span>
+    <span>💼 Online Services</span>
+    <span class="urdu-btn">💼 آن لائن خدمات</span>
+    <span class="punjabi-btn">💼 ਆਨਲਾਈਨ ਸੇਵਾਵਾਂ</span>
+  </a>
+
+  <footer>© 2025 Wahidi Online Service and Printers</footer>
+</div>
+
+</body>
+</html>
