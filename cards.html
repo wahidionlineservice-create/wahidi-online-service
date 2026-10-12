@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>हमारे कार्ड - Wahidi Online Service and Printers</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&family=Noto+Nastaliq+Urdu:wght@600&family=Noto+Sans+Gurmukhi:wght@600&family=Noto+Sans+Devanagari:wght@700&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+  min-height:100vh;
+  padding:20px 12px;
+  color:#fff;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.container {
+  background:#ffffff;
+  border-radius:16px;
+  padding:40px 25px;
+  max-width:700px;
+  width:100%;
+  margin:0 auto;
+  box-shadow:0 20px 50px rgba(0,0,0,0.35);
+  border-top:5px solid #c9a227;
+  text-align:center;
+}
+
+/* ===== हेडिंग - एनिमेटेड ===== */
+.page-title-anim {
+  position:relative;
+  height:70px;
+  margin-bottom:30px;
+  overflow:hidden;
+}
+.page-title-anim .title {
+  position:absolute;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:'Playfair Display',serif;
+  font-size:30px;
+  color:#1a2a3a;
+  font-weight:700;
+  opacity:0;
+}
+
+.page-title-anim .title:nth-child(1) { animation:dropIn 20s infinite; animation-delay:0s; }
+.page-title-anim .title:nth-child(2) { animation:dropIn 20s infinite; animation-delay:5s; }
+.page-title-anim .title:nth-child(3) { animation:dropIn 20s infinite; animation-delay:10s; }
+.page-title-anim .title:nth-child(4) { animation:dropIn 20s infinite; animation-delay:15s; }
+
+@keyframes dropIn {
+  0%   { opacity:0; transform:translateY(-40px) scale(0.85); }
+  5%   { opacity:1; transform:translateY(0) scale(1.05); }
+  8%   { opacity:1; transform:translateY(0) scale(1); }
+  23%  { opacity:1; transform:translateY(0) scale(1); }
+  25%  { opacity:0; transform:translateY(40px) scale(0.85); }
+  100% { opacity:0; transform:translateY(40px) scale(0.85); }
+}
+
+.hindi-title { font-family:'Noto Sans Devanagari',serif !important; }
+.urdu-title {
+  font-family:'Noto Nastaliq Urdu',serif !important;
+  direction:rtl;
+  font-size:26px !important;
+  line-height:2 !important;
+}
+.punjabi-title {
+  font-family:'Noto Sans Gurmukhi',sans-serif !important;
+  font-size:28px !important;
+}
+
+.divider {
+  width:100px;
+  height:2px;
+  background:linear-gradient(to right, transparent, #c9a227, transparent);
+  margin:0 auto 35px;
+  border-radius:2px;
+}
+
+/* ===== कैटेगरी बटन - एनिमेटेड ===== */
+.cat-btn-anim {
+  display:inline-block;
+  position:relative;
+  background:#1a2a3a;
+  color:#c9a227;
+  padding:0;
+  border-radius:14px;
+  text-decoration:none;
+  font-weight:600;
+  border:2px solid #c9a227;
+  transition:0.3s;
+  cursor:pointer;
+  width:100%;
+  max-width:340px;
+  height:100px;
+  overflow:hidden;
+  margin:0 auto 18px;
+  box-shadow:0 8px 20px rgba(26,42,58,0.2);
+}
+.cat-btn-anim:hover {
+  background:#c9a227;
+  transform:translateY(-5px);
+  box-shadow:0 15px 30px rgba(201,162,39,0.4);
+}
+
+.cat-btn-anim .btn-content {
+  position:absolute;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  opacity:0;
+}
+
+.cat-btn-anim .btn-content .icon { font-size:30px; }
+.cat-btn-anim .btn-content .label { font-size:16px; }
+
+.cat-btn-anim .btn-content:nth-child(1) { animation:btnFade 20s infinite; animation-delay:0s; }
+.cat-btn-anim .btn-content:nth-child(2) { animation:btnFade 20s infinite; animation-delay:5s; }
+.cat-btn-anim .btn-content:nth-child(3) { animation:btnFade 20s infinite; animation-delay:10s; }
+.cat-btn-anim .btn-content:nth-child(4) { animation:btnFade 20s infinite; animation-delay:15s; }
+
+@keyframes btnFade {
+  0%   { opacity:0; transform:translateY(20px); }
+  5%   { opacity:1; transform:translateY(0); }
+  23%  { opacity:1; transform:translateY(0); }
+  25%  { opacity:0; transform:translateY(-20px); }
+  100% { opacity:0; transform:translateY(-20px); }
+}
+
+.hindi-btn-label { font-family:'Noto Sans Devanagari',serif; font-size:17px; }
+.urdu-btn-label {
+  font-family:'Noto Nastaliq Urdu',serif;
+  direction:rtl;
+  font-size:18px;
+  line-height:1.8;
+}
+.punjabi-btn-label {
+  font-family:'Noto Sans Gurmukhi',sans-serif;
+  font-size:17px;
+}
+
+/* ===== वापस बटन ===== */
+.back-btn-anim {
+  display:inline-block;
+  position:relative;
+  background:#1a2a3a;
+  color:#c9a227;
+  padding:0;
+  border-radius:20px;
+  text-decoration:none;
+  font-weight:600;
+  border:1px solid #c9a227;
+  transition:0.3s;
+  cursor:pointer;
+  width:180px;
+  height:42px;
+  overflow:hidden;
+  margin-top:20px;
+  box-shadow:0 5px 15px rgba(26,42,58,0.2);
+}
+.back-btn-anim:hover {
+  background:#c9a227;
+  transform:translateY(-3px);
+  box-shadow:0 10px 25px rgba(201,162,39,0.4);
+}
+
+.back-btn-anim .back-content {
+  position:absolute;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:13px;
+  opacity:0;
+  color:#c9a227;
+  transition:color 0.3s;
+}
+.back-btn-anim:hover .back-content { color:#1a2a3a; }
+
+.back-btn-anim .back-content:nth-child(1) { animation:backFade 20s infinite; animation-delay:0s; }
+.back-btn-anim .back-content:nth-child(2) { animation:backFade 20s infinite; animation-delay:5s; }
+.back-btn-anim .back-content:nth-child(3) { animation:backFade 20s infinite; animation-delay:10s; }
+.back-btn-anim .back-content:nth-child(4) { animation:backFade 20s infinite; animation-delay:15s; }
+
+@keyframes backFade {
+  0%   { opacity:0; transform:translateX(-30px); }
+  5%   { opacity:1; transform:translateX(0); }
+  23%  { opacity:1; transform:translateX(0); }
+  25%  { opacity:0; transform:translateX(30px); }
+  100% { opacity:0; transform:translateX(30px); }
+}
+
+.hindi-back { font-family:'Noto Sans Devanagari',serif; font-size:14px; }
+.urdu-back {
+  font-family:'Noto Nastaliq Urdu',serif;
+  direction:rtl;
+  font-size:15px;
+  line-height:1.8;
+}
+.punjabi-back {
+  font-family:'Noto Sans Gurmukhi',sans-serif;
+  font-size:14px;
+}
+
+footer {
+  text-align:center;
+  margin-top:25px;
+  font-size:12px;
+  color:#8899a6;
+  letter-spacing:0.5px;
+}
+
+/* मोबाइल */
+@media(max-width:480px){
+  .container { padding:30px 18px; }
+  .page-title-anim { height:60px; margin-bottom:20px; }
+  .page-title-anim .title { font-size:20px; }
+  .urdu-title { font-size:18px !important; line-height:2.4 !important; }
+  .punjabi-title { font-size:20px !important; }
+  .cat-btn-anim { max-width:280px; height:95px; }
+  .cat-btn-anim .btn-content .icon { font-size:26px; }
+  .cat-btn-anim .btn-content .label { font-size:14px; }
+  .hindi-btn-label { font-size:15px; }
+  .urdu-btn-label { font-size:16px; }
+  .punjabi-btn-label { font-size:15px; }
+  .back-btn-anim { width:150px; height:40px; }
+  .back-btn-anim .back-content { font-size:12px; }
+  .hindi-back { font-size:12px; }
+  .urdu-back { font-size:13px; }
+  .punjabi-back { font-size:12px; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- एनिमेटेड हेडिंग -->
+  <div class="page-title-anim">
+    <div class="title hindi-title">हमारे कार्ड</div>
+    <div class="title">Our Cards</div>
+    <div class="title urdu-title">ہمارے کارڈ</div>
+    <div class="title punjabi-title">ਸਾਡੇ ਕਾਰਡ</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 1. चेक साइज़ कार्ड -->
+  <a href="cheque-cards.html" class="cat-btn-anim">
+    <div class="btn-content">
+      <span class="icon">📄</span>
+      <span class="label hindi-btn-label">चेक साइज़ कार्ड</span>
+    </div>
+    <div class="btn-content">
+      <span class="icon">📄</span>
+      <span class="label">Cheque Size Card</span>
+    </div>
+    <div class="btn-content">
+      <span class="icon">📄</span>
+      <span class="label urdu-btn-label">چیک سائز کارڈ</span>
+    </div>
+    <div class="btn-content">
+      <span class="icon">📄</span>
+      <span class="label punjabi-btn-label">ਚੈੱਕ ਸਾਈਜ਼ ਕਾਰਡ</span>
+    </div>
+  </a>
+
+  <br>
+
+  <!-- 2. फैंसी कार्ड -->
+  <a href="fancy-cards.html" class="cat-btn-anim">
+    <div class="btn-content">
+      <span class="icon">✨</span>
+      <span class="label hindi-btn-label">फैंसी कार्ड</span>
+    </div>
+    <div class="btn-content">
+      <span class="icon">✨</span>
+      <span class="label">Fancy Card</span>
+    </div>
+    <div class="btn-content">
+      <span class="icon">✨</span>
+      <span class="label urdu-btn-label">فینسی کارڈ</span>
+    </div>
+    <div class="btn-content">
+      <span class="icon">✨</span>
+      <span class="label punjabi-btn-label">ਫੈਂਸੀ ਕਾਰਡ</span>
+    </div>
+  </a>
+
+  <br>
+
+  <!-- वापस बटन -->
+  <a href="index.html" class="back-btn-anim">
+    <div class="back-content hindi-back">← वापस जाएं</div>
+    <div class="back-content">← Back</div>
+    <div class="back-content urdu-back">← واپس جائیں</div>
+    <div class="back-content punjabi-back">← ਵਾਪਸ ਜਾਓ</div>
+  </a>
+
+  <footer>© 2025 Wahidi Online Service and Printers</footer>
+</div>
+
+</body>
+</html>
